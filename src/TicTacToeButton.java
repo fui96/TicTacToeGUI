@@ -7,21 +7,24 @@ import javax.swing.*;
 public class TicTacToeButton extends JButton {
     private boolean isTaken = false;
     private int row,col;
+    private String takenBy = "";
 
     //Images
-    ImageIcon X = new ImageIcon("Asset 1@.75x.png");
-    ImageIcon O = new ImageIcon("Asset 2@.75x.png");
-    ImageIcon Blank = new ImageIcon("Asset 3@.75x.png");
+    private ImageIcon X = new ImageIcon("src/Assets/Asset 1@0.75x.png");
+    private ImageIcon O = new ImageIcon("src/Assets/Asset 2@0.75x.png");
+    private ImageIcon Blank = new ImageIcon("src/Assets/Asset 3@0.75x.png");
 
     /**
      * Constructor for custom TicTacToe Button
      * @param row the row coordinate for the button
      * @param col the column coordinate for the button
      */
-    public TicTacToeButton(int row, int col) {
+    public TicTacToeButton(int row, int col, String takenBy) {
         super();
         this.row = row;
         this.col = col;
+        this.takenBy = takenBy;
+        setIconBlank();
     }
 
     public boolean isTaken() {
@@ -59,7 +62,12 @@ public class TicTacToeButton extends JButton {
     }
     public void setIconBlank(){
         setIcon(Blank);
-        isTaken = true;
+        isTaken = false;
     }
-
+    public void setTakenBy(String takenBy) {
+        this.takenBy = takenBy;
+    }
+    public String getTakenBy() {
+        return takenBy;
+    }
 }
